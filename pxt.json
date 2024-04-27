@@ -9,7 +9,8 @@
         "audio-recording": "*",
         "microbit-pxt-clicks": "github:bsiever/microbit-pxt-clicks#v0.2.2",
         "datalogger": "*",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.7.5"
+        "neopixel": "github:microsoft/pxt-neopixel#v0.7.5",
+        "servo": "*"
     },
     "files": [
         "main.blocks",

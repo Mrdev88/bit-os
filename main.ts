@@ -31,6 +31,20 @@ input.onButtonPressed(Button.A, function () {
     Heading = input.compassHeading()
     basic.showString("Heading: " + Heading)
 })
+input.onPinPressed(TouchPin.P2, function () {
+    basic.showString("Connect a servo to pin 2")
+    pins.setEvents(DigitalPin.P2, PinEventType.Edge)
+    servos.P2.setAngle(0)
+    basic.pause(1000)
+    servos.P2.setAngle(90)
+    basic.pause(1000)
+    servos.P2.setAngle(180)
+    basic.pause(1000)
+    servos.P2.setAngle(90)
+    basic.pause(1000)
+    servos.P2.setAngle(0)
+    pins.setEvents(DigitalPin.P2, PinEventType.Touch)
+})
 input.onButtonPressed(Button.AB, function () {
     basic.showString("Record")
     record.startRecording(record.BlockingState.Blocking)
@@ -92,6 +106,7 @@ input.onPinPressed(TouchPin.P1, function () {
         strip.rotate(1)
         basic.pause(100)
     }
+    pins.setEvents(DigitalPin.P1, PinEventType.Touch)
 })
 input.onGesture(Gesture.Shake, function () {
     Step += 1
@@ -105,6 +120,7 @@ let Step = 0
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P1, 8, NeoPixelMode.RGB)
 pins.setEvents(DigitalPin.P1, PinEventType.Touch)
+pins.setEvents(DigitalPin.P2, PinEventType.Touch)
 record.setMicGain(record.AudioLevels.High)
 datalogger.setColumnTitles(
 "Steps",
